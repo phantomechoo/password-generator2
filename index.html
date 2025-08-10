@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator 🎰🎀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@0;1&family=Amatic+SC:wght@400;700&family=Anton&family=Ballet:opsz@16..72&family=Bitcount+Prop+Single:wght@100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Dosis:wght@200..800&family=Edu+QLD+Hand:wght@400..700&family=Fascinate&family=Italiana&family=Jersey+10&family=League+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Nanum+Myeongjo&family=Patrick+Hand&family=Pixelify+Sans:wght@400..700&family=Playpen+Sans:wght@100..800&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sail&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@0;1&family=Amatic+SC:wght@400;700&family=Anton&family=Ballet:opsz@16..72&family=Bitcount+Prop+Single:wght@100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Dosis:wght@200..800&family=Edu+QLD+Hand:wght@400..700&family=Fascinate&family=Italiana&family=Jersey+10&family=League+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Mea+Culpa&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Nanum+Myeongjo&family=Patrick+Hand&family=Pixelify+Sans:wght@400..700&family=Playpen+Sans:wght@100..800&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sail&display=swap" rel="stylesheet">
+
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;  /* elemanları iki yana yaslar */
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .myH1 {
+            font-family: "Italiana", sans-serif;
+            font-weight: 100;
+            font-size: 45px;
+        }
+        
+        .span1 {
+            font-family: "Mea Culpa", cursive;
+            color: #ffb7d4;
+            font-weight: 100;
+            font-size: 62px;
+        }
+
+        .conteiner1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            gap: 20px;
+        }
+
+        #passwordOutput {
+            font-size: 35px;
+            background-color: #fff1f4;
+            border: 3px solid #ffdbe9;
+            border-radius: 15px;
+            padding: 5px 5px;
+            font-family: "Italiana", sans-serif;
+        }
+
+        #myBtn {
+            font-size: 35px;
+            background-color: #fff1f4;
+            border: 3px solid #ffdbe9;
+            border-radius: 15px;
+            padding: 5px 15px;
+            font-family: "Italiana", sans-serif; 
+            transition: background-color 0.3s ease; 
+        }
+
+        #myBtn:hover {
+            background-color: #ffb5d3;
+            box-shadow: 0 0 8px #ffc0d9;
+        }
+
+        #lengthSlider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 300px;
+            height: 15px;
+            background-color: #ffdbe9;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        #lengthSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #ffafcf;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ff9ec3;
+        }
+
+
+        .conteiner2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .conteiner3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 70px;
+            gap: 5px;
+            font-size: 25px;
+        }
+
+        .span2, .span3 {
+            font-family: "Mea Culpa", cursive;
+            color: #ffb7d4;
+            font-size: 35px;
+        }
+        
+        .label {
+            font-size: 27px;
+            font-family: "Italiana", sans-serif;
+            padding: 5px;
+        }
+
+        .pChars {
+            font-family: "Italiana", sans-serif;
+            padding: 10px 10px;
+            gap: 10px;
+            font-size: 27px;
+        }
+
+        .input {
+            transform: scale(1.5);
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: rgb(0, 0, 0);
+            font-size: 27px;
+            font-family: "Italiana", sans-serif;
+            opacity: 0.3;
+        }
+
+        #replayBtn {
+            background-color: white;
+            border: none;
+        }
+
+        #replayBtn:hover {
+            transform: scale(1.1);
+            transition: 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 5px;
+                padding: 0 5px;
+            }
+
+            nav img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .myH1 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .span1 {
+                font-size: 26px;
+            }
+
+            .conteiner1 {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                gap: 10px;
+                height: auto;
+                margin-top: 10px;
+            }
+
+            #passwordOutput {
+                font-size: 20px;
+                width: 90%;
+                text-align: center;
+            }
+
+            #myBtn, #replayBtn {
+                font-size: 18px;
+                padding: 8px 12px;
+                width: auto;
+            }
+
+            .conteiner2 {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            #lengthSlider {
+                width: 90%;
+            }
+
+            .conteiner3 {
+                flex-direction: row;
+                align-items: center;
+                margin: 20px 0;
+                gap: 5px;
+                font-size: 20px;
+            }
+
+            .span2, .span3 {
+                font-size: 25px;
+            }
+
+            .input {
+                transform: scale(1.2);
+            }
+
+            .conteiner1, .conteiner2, .conteiner3 {
+                margin-bottom: 50px;
+            }
+        }
+       
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="kurdele1" src="./kurdele.png" width="150px", height="150px">
+        <h1 class="myH1">Girly <span class="span1">Password</span> Generator</h1>
+        <img class="kurdele2" src="./kurdele.png" width="150px", height="150px">
+    </nav>
+
+    <div class="conteiner1 password-wrapper">
+        <input type="text" id="passwordOutput" placeholder="Your password" readonly>
+        <span id="strengthText"></span>
+        <button id="myBtn">copy</button>
+        <button id="replayBtn"><img src="./replay.svg" class="img"></button>
+    </div>
+
+    <div class="conteiner2">
+        <label class="label" for="lengthSlider"> <span class="span2">Password</span> length: 
+            <strong id="lengthValue">16</strong>
+        </label>
+        <input type="range" id="lengthSlider" min="4" max="32" value="16" >
+    </div>
+
+    <div class="conteiner3">
+        <label class="pChars" for="chars"> <span class="span3">Password</span> chars: </label>
+        <input id="longLet" class="input" type="checkbox"> <label for="checkbox">ABC</label> <br>
+        <input id="shortLet" class="input" type="checkbox"> <label for="checkbox">abc</label> <br>
+        <input id="num" class="input" type="checkbox"> <label for="checkbox">123</label> <br>
+        <input id="symb" class="input" type="checkbox"> <label for="checkbox">&#*</label>
+    </div>
+   
+    <script>
+        const passwordOutput = document.getElementById("passwordOutput");
+        const myBtn = document.getElementById("myBtn");
+        const lengthValue = document.getElementById("lengthValue");
+        const lengthSlider = document.getElementById("lengthSlider");
+        const longLet = document.getElementById("longLet");
+        const shortLet = document.getElementById("shortLet");
+        const num = document.getElementById("num");
+        const symb = document.getElementById("symb");
+        const replayBtn = document.getElementById("replayBtn");
+
+        const shortLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","s","t","u","v","w","x","y","z"];
+        const longLetter = ["A","B","C","D","E","F","G","H","İ","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z"];
+        const numbers = ["0","1","2","3","4","5","6","7","8","9"];
+        const symbols = ["#","%","&","$","?","!",")","(","_"];
+
+
+        function generatePassword() {
+            let length = +lengthSlider.value;
+            let charset = shortLetter.join(""); // önce küçük harfler string olarak
+
+            if (longLet.checked) charset += longLetter.join("");
+            if (num.checked) charset += numbers.join("");
+            if (symb.checked) charset += symbols.join("");
+
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            passwordOutput.value = password;
+        }
+
+        // Slider hareket ettikçe uzunluk göster ve şifre üret
+        lengthSlider.addEventListener("input", () => {
+            lengthValue.textContent = lengthSlider.value;
+            generatePassword();
+        });
+
+        // Checkbox değiştiğinde şifreyi güncelle
+        [longLet, shortLet, num, symb].forEach(checkbox => {
+            checkbox.addEventListener("change", generatePassword);
+        });
+
+        // Replay butonuna basınca yeni şifre üret
+        replayBtn.addEventListener("click", generatePassword);
+
+        // Kopyala butonuna basınca şifreyi panoya kopyala ve yazıyı değiştir
+        myBtn.addEventListener("click", () => {
+            navigator.clipboard.writeText(passwordOutput.value).then(() => {
+                const oldText = myBtn.textContent;
+                myBtn.textContent = "copied!";
+                setTimeout(() => {
+                    myBtn.textContent = oldText;
+                }, 2000);
+            }).catch(err => {
+                console.log("Kopyalama hatası", err);
+            });
+        });
+
+        // Sayfa açıldığında ilk şifreyi oluştur
+        generatePassword();
+
+    </script>
+</body>
+</html>
